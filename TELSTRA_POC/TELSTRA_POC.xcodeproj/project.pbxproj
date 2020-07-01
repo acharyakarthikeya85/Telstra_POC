@@ -10,15 +10,13 @@
 		1DEBB24B24AA436100421D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB24A24AA436100421D6F /* AppDelegate.swift */; };
 		1DEBB24D24AA436100421D6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB24C24AA436100421D6F /* SceneDelegate.swift */; };
 		1DEBB24F24AA436100421D6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB24E24AA436100421D6F /* ViewController.swift */; };
-		1DEBB25224AA436100421D6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBB25024AA436100421D6F /* Main.storyboard */; };
 		1DEBB25524AA436200421D6F /* TELSTRA_POC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB25324AA436200421D6F /* TELSTRA_POC.xcdatamodeld */; };
 		1DEBB25724AA436800421D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBB25624AA436800421D6F /* Assets.xcassets */; };
 		1DEBB25A24AA436800421D6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBB25824AA436800421D6F /* LaunchScreen.storyboard */; };
 		1DEBB26524AA436800421D6F /* TELSTRA_POCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB26424AA436800421D6F /* TELSTRA_POCTests.swift */; };
 		1DEBB27024AA436800421D6F /* TELSTRA_POCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB26F24AA436800421D6F /* TELSTRA_POCUITests.swift */; };
-		1DEBB28124AA471000421D6F /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB28024AA471000421D6F /* ModelController.swift */; };
-		1DEBB28524AA47A800421D6F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB28424AA47A800421D6F /* View.swift */; };
-		1DEBB28724AA4AD000421D6F /* CanadaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB28624AA4AD000421D6F /* CanadaData.swift */; };
+		1DEBB28124AA471000421D6F /* CanadaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB28024AA471000421D6F /* CanadaDataModel.swift */; };
+		1DEBB28724AA4AD000421D6F /* CanadaDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBB28624AA4AD000421D6F /* CanadaDataCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +41,6 @@
 		1DEBB24A24AA436100421D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEBB24C24AA436100421D6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1DEBB24E24AA436100421D6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1DEBB25124AA436100421D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DEBB25424AA436200421D6F /* TELSTRA_POC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TELSTRA_POC.xcdatamodel; sourceTree = "<group>"; };
 		1DEBB25624AA436800421D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DEBB25924AA436800421D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,9 +51,8 @@
 		1DEBB26B24AA436800421D6F /* TELSTRA_POCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TELSTRA_POCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEBB26F24AA436800421D6F /* TELSTRA_POCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TELSTRA_POCUITests.swift; sourceTree = "<group>"; };
 		1DEBB27124AA436800421D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DEBB28024AA471000421D6F /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		1DEBB28424AA47A800421D6F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		1DEBB28624AA4AD000421D6F /* CanadaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaData.swift; sourceTree = "<group>"; };
+		1DEBB28024AA471000421D6F /* CanadaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaDataModel.swift; sourceTree = "<group>"; };
+		1DEBB28624AA4AD000421D6F /* CanadaDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaDataCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +108,6 @@
 				1DEBB27D24AA469400421D6F /* ViewController */,
 				1DEBB24A24AA436100421D6F /* AppDelegate.swift */,
 				1DEBB24C24AA436100421D6F /* SceneDelegate.swift */,
-				1DEBB25024AA436100421D6F /* Main.storyboard */,
 				1DEBB25624AA436800421D6F /* Assets.xcassets */,
 				1DEBB25824AA436800421D6F /* LaunchScreen.storyboard */,
 				1DEBB25B24AA436800421D6F /* Info.plist */,
@@ -150,8 +145,7 @@
 		1DEBB27E24AA46A100421D6F /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
-				1DEBB28024AA471000421D6F /* ModelController.swift */,
-				1DEBB28624AA4AD000421D6F /* CanadaData.swift */,
+				1DEBB28024AA471000421D6F /* CanadaDataModel.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -159,7 +153,7 @@
 		1DEBB27F24AA46EB00421D6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1DEBB28424AA47A800421D6F /* View.swift */,
+				1DEBB28624AA4AD000421D6F /* CanadaDataCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,7 +264,6 @@
 			files = (
 				1DEBB25A24AA436800421D6F /* LaunchScreen.storyboard in Resources */,
 				1DEBB25724AA436800421D6F /* Assets.xcassets in Resources */,
-				1DEBB25224AA436100421D6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,11 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEBB25524AA436200421D6F /* TELSTRA_POC.xcdatamodeld in Sources */,
-				1DEBB28124AA471000421D6F /* ModelController.swift in Sources */,
-				1DEBB28524AA47A800421D6F /* View.swift in Sources */,
+				1DEBB28124AA471000421D6F /* CanadaDataModel.swift in Sources */,
 				1DEBB24F24AA436100421D6F /* ViewController.swift in Sources */,
 				1DEBB24B24AA436100421D6F /* AppDelegate.swift in Sources */,
-				1DEBB28724AA4AD000421D6F /* CanadaData.swift in Sources */,
+				1DEBB28724AA4AD000421D6F /* CanadaDataCell.swift in Sources */,
 				1DEBB24D24AA436100421D6F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,14 +329,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1DEBB25024AA436100421D6F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DEBB25124AA436100421D6F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1DEBB25824AA436800421D6F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
