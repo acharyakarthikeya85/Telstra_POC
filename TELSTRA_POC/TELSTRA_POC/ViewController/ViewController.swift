@@ -8,20 +8,56 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, didFinishDownloadDelegate {
 
     var myTableView : UITableView = UITableView()
     let model = CanadaDataModel()
 
+    var loading = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        model.delegate = self
+        setTableView()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (loading) {
+            return 1
+        } else {
+            return model.titleArray.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CanadaDataCell", for: indexPath) as! CanadaDataCell
+
+        if(loading){
+          // Loading in progress and data from api call not yet available.
+        } else {
+            cell.cellTitle.text = model.titleArray[indexPath.row]
+            cell.cellDesc.text = model.descArray[indexPath.row]
+            guard let url = URL(string:model.imageArray[indexPath.row]) else { return cell }
+            DispatchQueue.global().async {
+                if let imagedata = try? Data(contentsOf: url){
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = UIImage(data: imagedata)
+                    }
+                }
+            }
+        }
+        return cell
+    }
+    
+    func setTableView(){
         view.backgroundColor = UIColor.red
         view.addSubview(myTableView)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
 
+        myTableView.separatorColor = UIColor.blue
         myTableView.dataSource = self
+        myTableView.delegate = self
         myTableView.register(CanadaDataCell.self, forCellReuseIdentifier: "CanadaDataCell")
         
         myTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -30,24 +66,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         model.fetchFirstPage()
+    }
+
+    func updateTable() {
+        loading = false
+        DispatchQueue.main.async {
+            self.myTableView.reloadData()
+        }
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CanadaDataCell", for: indexPath) as! CanadaDataCell
-//        let rowNum : Int = indexPath.row
-//        print(" Total title items \(model.titleArray.count)")
-//        print("Total description items \(model.descArray.count)")
-//        cell.title.text = model.titleArray[rowNum]
-//        cell.desc.text =  model.descArray[rowNum]
-        // Need to handle sync between model and vc class.
-        return cell
-    }
-
-
 }
 

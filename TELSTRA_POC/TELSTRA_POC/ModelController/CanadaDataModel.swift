@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+protocol didFinishDownloadDelegate {
+    func updateTable()
+}
+
 class CanadaDataModel: NSObject {
     
     var pageCount : Int = 0
     
+    var delegate : didFinishDownloadDelegate?
     var titleArray = [String]()
     var descArray = [String]()
     var imageArray = [String]()
@@ -61,7 +66,7 @@ class CanadaDataModel: NSObject {
                             self.descArray.append("")
                         }
                         
-                        if let imgData = (dict.value(forKey: "description") as? String) {
+                        if let imgData = (dict.value(forKey: "imageHref") as? String) {
                              self.imageArray.append(imgData)
                         } else {
                             self.imageArray.append("")
@@ -72,6 +77,7 @@ class CanadaDataModel: NSObject {
                     print(self.titleArray.count)
                     print(self.descArray.count)
                     print(self.imageArray.count)
+                    self.delegate?.updateTable()
                     
                 } catch let error {
                     print(error)
