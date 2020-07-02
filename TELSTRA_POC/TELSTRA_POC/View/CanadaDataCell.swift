@@ -22,7 +22,7 @@ class CanadaDataCell : UITableViewCell{
         return descr
     }()
     
-    let cellImageHref : UIImageView = {
+    lazy var cellImageHref : UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -51,8 +51,8 @@ class CanadaDataCell : UITableViewCell{
     func setUpConstraints(){
         cellImageHref.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         cellImageHref.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        cellImageHref.widthAnchor.constraint(equalToConstant:70).isActive = true
-        cellImageHref.heightAnchor.constraint(equalToConstant:70).isActive = true
+        cellImageHref.widthAnchor.constraint(equalToConstant:50).isActive = true
+        cellImageHref.heightAnchor.constraint(equalToConstant:50).isActive = true
         
         cellContainerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         cellContainerView.leadingAnchor.constraint(equalTo:self.cellImageHref.trailingAnchor, constant:10).isActive = true

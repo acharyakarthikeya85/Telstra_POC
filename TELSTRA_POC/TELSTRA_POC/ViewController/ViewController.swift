@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var myTableView : UITableView = UITableView()
     let model = CanadaDataModel()
+    var imageLoader = ImageLoader()
 
     var loading = true
     
@@ -38,12 +39,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             cell.cellTitle.text = model.titleArray[indexPath.row]
             cell.cellDesc.text = model.descArray[indexPath.row]
-            guard let url = URL(string:model.imageArray[indexPath.row]) else { return cell }
-            DispatchQueue.global().async {
-                if let imagedata = try? Data(contentsOf: url){
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = UIImage(data: imagedata)
-                    }
+            
+            DispatchQueue.main.async {
+                self.imageLoader.obtainImageWithPath(imagePath: self.model.imageArray[indexPath.row]) { (image) in
+                    cell.cellImageHref.image = image
                 }
             }
         }
