@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Protocol for callback.
 protocol didFinishDownloadDelegate {
     func updateTable()
 }
@@ -26,26 +27,22 @@ class CanadaDataModel: NSObject {
         serviceCallForData()
     }
     
-    func fetchNextPage(){
-        
-    }
-    
     func serviceCallForData(){
         
         let session  = URLSession.shared
         guard let url = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else { return  }
-        
+        //URLSession RESTFUL web service call for data
         let task = session.dataTask(with: url, completionHandler: {
          data, response, error in
             if((error) != nil){
                 print(error as Any)
             } else {
-                print("D type of data \(type(of: data))")
                 
                 do{
                     let utf8Data = String(decoding: data!, as: UTF8.self).data(using: .utf8)
                     print(utf8Data as Any)
                     
+                    //Converting Data to Dictionary using JSON.
                     let json : Dictionary = try JSONSerialization.jsonObject(with: utf8Data!, options: []) as! Dictionary<String, Any>
                     
                     print(json["rows"] as Any)
@@ -77,6 +74,7 @@ class CanadaDataModel: NSObject {
                     print(self.titleArray.count)
                     print(self.descArray.count)
                     print(self.imageArray.count)
+                    //Inform the tableview through delegate after getting data from server.
                     self.delegate?.updateTable()
                     
                 } catch let error {

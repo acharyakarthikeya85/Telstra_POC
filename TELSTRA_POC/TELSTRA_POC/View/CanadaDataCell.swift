@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Custom class for tableViewCell with title, description and image.
 class CanadaDataCell : UITableViewCell{
     let cellTitle: UILabel = {
         let title = UILabel()
@@ -48,6 +49,7 @@ class CanadaDataCell : UITableViewCell{
         super.init(coder: aDecoder)
     }
     
+    //Adding constraints for the cell components
     func setUpConstraints(){
         cellImageHref.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         cellImageHref.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Class for lazy loading of the cell images.
 class ImageLoader {
     
     var task: URLSessionDownloadTask!
@@ -22,11 +23,13 @@ class ImageLoader {
     }
     
     func obtainImageWithPath(imagePath: String, completionHandler: @escaping (UIImage) -> ()) {
+        // Using caching for storing the images.
         if let image = self.cache.object(forKey: imagePath as NSString) {
             DispatchQueue.main.async {
                 completionHandler(image)
             }
         } else {
+            //Default placeholder image
             let placeholder = UIImage(named:"placeHolder")
             DispatchQueue.main.async {
                 completionHandler(placeholder!)
@@ -34,10 +37,12 @@ class ImageLoader {
             
             let url: URL? = URL(string: imagePath)
             if let baseUrl = url {
+                // Using URLSession for downloading the images 
                 task = session.downloadTask(with: baseUrl, completionHandler: { (location, response, error) in
                     if let data = try? Data(contentsOf: baseUrl) {
                         let img: UIImage! = UIImage(data: data)
                         self.cache.setObject(img, forKey: imagePath as NSString)
+                        //Updating the UI of the cell in the main thread. Pass image to tableview through closure
                         DispatchQueue.main.async {
                             completionHandler(img)
                         }

@@ -18,12 +18,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Set the delegate for call back.
         model.delegate = self
         setTableView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Load the tableView properly after getting appropriate result from server
         if (loading) {
             return 1
         } else {
@@ -39,16 +40,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             cell.cellTitle.text = model.titleArray[indexPath.row]
             cell.cellDesc.text = model.descArray[indexPath.row]
-            
-            DispatchQueue.main.async {
-                self.imageLoader.obtainImageWithPath(imagePath: self.model.imageArray[indexPath.row]) { (image) in
-                    cell.cellImageHref.image = image
-                }
+            self.imageLoader.obtainImageWithPath(imagePath: self.model.imageArray[indexPath.row]) { (image) in
+                cell.cellImageHref.image = image
             }
         }
         return cell
     }
     
+    //Initial set up for tableview 
     func setTableView(){
         view.backgroundColor = UIColor.red
         view.addSubview(myTableView)
@@ -67,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         model.fetchFirstPage()
     }
 
+    //Reload the tableView after getting data. Protocol delegate method implemented.
     func updateTable() {
         loading = false
         DispatchQueue.main.async {
